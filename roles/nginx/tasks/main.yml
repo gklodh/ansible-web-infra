@@ -1,0 +1,21 @@
+---
+- name: Install Nginx
+  apt:
+    name: "{{ nginx_package }}"
+    state: present
+    update_cache: true
+
+- name: Deploy website
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Nginx
+
+- name: Ensure Nginx is running
+  service:
+    name: "{{ nginx_service }}"
+    state: started
+    enabled: true

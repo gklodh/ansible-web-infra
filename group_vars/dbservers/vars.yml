@@ -1,0 +1,3 @@
+---
+mysql_port: 3306
+mysql_allowed_clients: "{{ groups['webservers'] | map('extract', hostvars, 'ansible_host') | list }}"

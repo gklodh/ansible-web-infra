@@ -1,0 +1,531 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberHub | Cybersecurity Platform</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: #e8f1f8;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #091625;
+            border-bottom: 1px solid #183149;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #28d7fe;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #9fb3c8;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #28d7fe;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            background:
+                radial-gradient(circle at 80% 30%, #103b55 0%, transparent 35%),
+                #07111f;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid #1b7994;
+            border-radius: 20px;
+            color: #28d7fe;
+            font-size: 12px;
+            margin-bottom: 20px;
+            background: #0b2233;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #28d7fe;
+        }
+
+        .hero p {
+            color: #9fb3c8;
+            font-size: 17px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #28d7fe;
+            color: #04101a;
+            padding: 13px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: #28d7fe;
+            border: 1px solid #28d7fe;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 40px 8%;
+            background: #091625;
+        }
+
+        .stat {
+            padding: 25px;
+            border: 1px solid #183149;
+            border-radius: 8px;
+            background: #0b1929;
+        }
+
+        .stat h2 {
+            color: #28d7fe;
+            font-size: 28px;
+        }
+
+        .stat p {
+            color: #8297ab;
+            font-size: 13px;
+        }
+
+        /* Services */
+        .section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #8297ab;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #0b1929;
+            border: 1px solid #183149;
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #28d7fe;
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: #8297ab;
+            font-size: 14px;
+        }
+
+        /* Security Dashboard */
+        .dashboard {
+            background: #091625;
+            padding: 60px 8%;
+        }
+
+        .dashboard-box {
+            max-width: 1000px;
+            margin: auto;
+            background: #07111f;
+            border: 1px solid #183149;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .status {
+            color: #32e875;
+        }
+
+        .security-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #0b1929;
+            border-radius: 5px;
+        }
+
+        .secure {
+            color: #32e875;
+        }
+
+        .warning {
+            color: #ffc857;
+        }
+
+        /* Server Information */
+        .server {
+            margin-top: 30px;
+            padding: 20px;
+            border-left: 3px solid #28d7fe;
+            background: #0b1929;
+        }
+
+        .server p {
+            color: #9fb3c8;
+            margin: 5px 0;
+        }
+
+        .server strong {
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #050c15;
+            border-top: 1px solid #183149;
+            color: #71869a;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #28d7fe;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">
+        Cyber<span>Hub</span>
+    </div>
+
+    <div>
+        <a href="#security">Security</a>
+        <a href="#services">Services</a>
+        <a href="#status">Status</a>
+    </div>
+</nav>
+
+
+<!-- Hero -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ● CYBERSECURITY & INFRASTRUCTURE
+        </div>
+
+        <h1>
+            Secure your infrastructure with
+            <span>CyberHub</span>
+        </h1>
+
+        <p>
+            Modern cybersecurity monitoring and infrastructure
+            protection designed to help organizations detect threats,
+            monitor systems and maintain a secure digital environment.
+        </p>
+
+        <a href="#security" class="button">
+            Explore Security
+        </a>
+
+        <a href="#status" class="button secondary">
+            System Status
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Statistics -->
+<section class="stats">
+
+    <div class="stat">
+        <h2>99.9%</h2>
+        <p>Infrastructure Availability</p>
+    </div>
+
+    <div class="stat">
+        <h2>24/7</h2>
+        <p>Security Monitoring</p>
+    </div>
+
+    <div class="stat">
+        <h2>250+</h2>
+        <p>Systems Protected</p>
+    </div>
+
+    <div class="stat">
+        <h2>99.8%</h2>
+        <p>Backup Integrity</p>
+    </div>
+
+</section>
+
+
+<!-- Services -->
+<section class="section" id="services">
+
+    <div class="section-title">
+
+        <h2>Security Operations</h2>
+
+        <p>
+            Protecting infrastructure through continuous monitoring
+            and automated security practices.
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+        <div class="card">
+
+            <div class="icon">🛡️</div>
+
+            <h3>Threat Detection</h3>
+
+            <p>
+                Monitor infrastructure activity and detect
+                suspicious events before they become major
+                security incidents.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔍</div>
+
+            <h3>Vulnerability Management</h3>
+
+            <p>
+                Identify security weaknesses and maintain
+                visibility across servers, applications and
+                infrastructure.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">⚙️</div>
+
+            <h3>Infrastructure Automation</h3>
+
+            <p>
+                Automate server configuration and deployment
+                using reliable infrastructure-as-code practices.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Security Dashboard -->
+<section class="dashboard" id="security">
+
+    <div class="dashboard-box">
+
+        <div class="dashboard-header">
+
+            <h2>Security Operations Dashboard</h2>
+
+            <span class="status">
+                ● SYSTEM OPERATIONAL
+            </span>
+
+        </div>
+
+
+        <div class="security-row">
+            <span>Network Monitoring</span>
+            <span class="secure">SECURE</span>
+        </div>
+
+        <div class="security-row">
+            <span>Endpoint Protection</span>
+            <span class="secure">ACTIVE</span>
+        </div>
+
+        <div class="security-row">
+            <span>Vulnerability Scanner</span>
+            <span class="secure">ONLINE</span>
+        </div>
+
+        <div class="security-row">
+            <span>Backup System</span>
+            <span class="secure">HEALTHY</span>
+        </div>
+
+        <div class="security-row">
+            <span>Security Events</span>
+            <span class="warning">MONITORING</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Server Information -->
+<section class="section" id="status">
+
+    <div class="section-title">
+
+        <h2>Deployment Information</h2>
+
+        <p>
+            This application is automatically deployed and
+            configured using Ansible.
+        </p>
+
+    </div>
+
+
+    <div class="server">
+
+        <p>
+            <strong>Server:</strong>
+            {{ inventory_hostname }}
+        </p>
+
+        <p>
+            <strong>Environment:</strong>
+            {{ ansible_facts.env.ENVIRONMENT | default('Production') }}
+        </p>
+
+        <p>
+            <strong>Deployment:</strong>
+            Ansible Automation
+        </p>
+
+        <p>
+            <strong>Application:</strong>
+            CyberHub
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            <span class="secure">Operational</span>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+
+    © 2026 <span>CyberHub</span> |
+    Secure Infrastructure • Automated Deployment • Continuous Monitoring
+
+</footer>
+
+</body>
+</html>

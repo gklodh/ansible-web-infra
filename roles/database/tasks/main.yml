@@ -1,0 +1,28 @@
+---
+- name: Install MySQL
+  apt:
+    name: "{{ database_package }}"
+    state: present
+    update_cache: true
+
+- name: Configure MySQL
+  template:
+    src: mysqld.cnf.j2
+    dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart MySQL
+
+- name: Ensure MySQL is running
+  service:
+    name: "{{ database_service }}"
+    state: started
+    enabled: true
+
+- name: Set MySQL root password
+  community.mysql.mysql_user:
+    name: root
+    host: localhost
+    password: "{{ mysql_root_password }}"
+    check_implicit_admin: true

@@ -1,0 +1,17 @@
+---
+- name: Configure Web Servers
+  hosts: webservers
+  become: true
+
+  roles:
+    - nginx
+    - firewall
+
+
+- name: Configure Database Server
+  hosts: dbservers
+  become: true
+
+  roles:
+    - database
+    - firewall

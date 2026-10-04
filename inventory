@@ -1,0 +1,12 @@
+[webservers]
+web01 ansible_host=10.2.2.85
+web02 ansible_host=10.2.2.202
+
+[dbservers]
+db01 ansible_host=10.2.2.58
+
+[webservers:vars]
+ansible_user=ansible
+
+[dbservers:vars]
+ansible_user=ansible
