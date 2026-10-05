@@ -196,4 +196,4 @@ db01   : ok=..  changed=0  unreachable=0  failed=0
 
 **Gourab Kumar Lodh**
 Aspiring DevOps Engineer
-GitHub: [@gklodh](https://github.com/gklodh) · LinkedIn: [your-profile](https://www.linkedin.com/in/your-profile)
+GitHub: [@gklodh](https://github.com/gklodh)
